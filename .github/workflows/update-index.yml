@@ -1,0 +1,27 @@
+# yourorg/helm-chart-repository/.github/workflows/update-index.yml
+name: Update Index
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '**.tgz'
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v2
+      - name: Helm Installation
+        uses: azure/setup-helm@v1.1
+        with:
+          version: v3.7.0
+      - name: Update Index
+        run: |
+          helm repo index .
+          git config --global user.email "bot@fitneks.com"
+          git config --global user.name "FitneksBot"
+          git add index.yaml
+          git commit -m "Update chart index"
+          git push
