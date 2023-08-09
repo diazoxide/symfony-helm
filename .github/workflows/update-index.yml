@@ -1,4 +1,3 @@
-# yourorg/helm-chart-repository/.github/workflows/update-index.yml
 name: Update Index
 
 on:
