@@ -1,9 +1,9 @@
 dependencies:
 - name: postgresql
   repository: https://charts.bitnami.com/bitnami/
-  version: 12.1.14
+  version: 12.1.15
 - name: external-dns
   repository: https://charts.bitnami.com/bitnami/
-  version: 6.13.2
-digest: sha256:63aa23aeaa3c5ad82a56adc35bff7ce77dfcce11d811dae9b29587b569899265
-generated: "2023-02-02T11:06:11.852751401+01:00"
+  version: 6.13.4
+digest: sha256:c59a451b4c1b2ded7052ea50c82b8a7f06b9036451a1ecd8ae882a3ff1a4bfef
+generated: "2023-08-10T02:33:40.261329+04:00"
