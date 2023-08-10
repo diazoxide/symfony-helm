@@ -6,7 +6,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 0.13.2
-    created: "2023-08-10T14:37:22.061184+04:00"
+    created: "2023-08-10T14:37:40.044677+04:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -39,7 +39,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 15.2.0
-    created: "2023-08-10T14:37:22.063522+04:00"
+    created: "2023-08-10T14:37:40.046935+04:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -72,7 +72,7 @@ entries:
   symfony-helm:
   - apiVersion: v2
     appVersion: 0.2.3
-    created: "2023-08-10T14:37:22.059162+04:00"
+    created: "2023-08-10T14:37:40.042469+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -83,7 +83,7 @@ entries:
       repository: https://charts.bitnami.com/bitnami/
       version: ~6.13.2
     description: Symfony Helm Chart for Kubernetes
-    digest: a1deb65155f225880dd70c678d5f778fd0bbafafc67cbcbc32a44a84a3a5c625
+    digest: 79f249b56fcf383b3ad2b50040c568258e495e234587ba5094f5adbad85f4b4f
     home: https://symfony.com
     icon: https://symfony.com/logos/symfony_black_03.png
     name: symfony-helm
@@ -93,7 +93,7 @@ entries:
     version: 0.2.3
   - apiVersion: v2
     appVersion: 0.2.1
-    created: "2023-08-10T14:37:22.048644+04:00"
+    created: "2023-08-10T14:37:40.02626+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -114,7 +114,7 @@ entries:
     version: 0.2.2
   - apiVersion: v2
     appVersion: 0.2.1
-    created: "2023-08-10T14:37:22.040442+04:00"
+    created: "2023-08-10T14:37:40.017809+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -135,7 +135,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2023-08-10T14:37:22.031961+04:00"
+    created: "2023-08-10T14:37:40.008827+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -156,7 +156,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2023-08-10T14:37:22.026458+04:00"
+    created: "2023-08-10T14:37:40.003098+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -175,4 +175,4 @@ entries:
     urls:
     - symfony-helm-0.0.1.tgz
     version: 0.0.1
-generated: "2023-08-10T14:37:22.019993+04:00"
+generated: "2023-08-10T14:37:39.996889+04:00"
