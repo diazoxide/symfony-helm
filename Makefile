@@ -5,4 +5,4 @@ new-version:
 	git add .
 	git commit -m "Version release $(VERSION)"
 	git tag -a $(VERSION) -m "Version release $(VERSION)"
-	git push origin master
+	git push origin main
