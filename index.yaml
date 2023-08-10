@@ -6,7 +6,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 0.13.2
-    created: "2023-08-10T17:46:06.704318+04:00"
+    created: "2023-08-10T18:00:29.273858+04:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -39,7 +39,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 15.2.0
-    created: "2023-08-10T17:46:06.707375+04:00"
+    created: "2023-08-10T18:00:29.276405+04:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -69,10 +69,10 @@ entries:
     urls:
     - charts/postgresql-12.1.15.tgz
     version: 12.1.15
-  symfony-helm:
+  symfony:
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2023-08-10T17:46:06.702282+04:00"
+    created: "2023-08-10T18:00:29.271697+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -83,75 +83,12 @@ entries:
       repository: https://charts.bitnami.com/bitnami/
       version: ~6.13.2
     description: Symfony Helm Chart for Kubernetes
-    digest: 1885368b783756cbdce11617fa53f3846a3a5dcdf0b22297ca615ac4252a8508
+    digest: 5962479d9e62fbf4786871ce764e58b2dc4ba7cacb51919199868ffe1e65b417
     home: https://symfony.com
     icon: https://symfony.com/logos/symfony_black_03.png
-    name: symfony-helm
+    name: symfony
     type: application
     urls:
-    - symfony-helm-0.4.0.tgz
-    version: 0.4.0
-  - apiVersion: v2
-    appVersion: 0.2.3
-    created: "2023-08-10T17:46:06.697063+04:00"
-    dependencies:
-    - condition: postgresql.enabled
-      name: postgresql
-      repository: https://charts.bitnami.com/bitnami/
-      version: ~12.1.14
-    - condition: external-dns.enabled
-      name: external-dns
-      repository: https://charts.bitnami.com/bitnami/
-      version: ~6.13.2
-    description: Symfony Helm Chart for Kubernetes
-    digest: 9c14108295f51faef83d3ad49acb277ca53d69420464988d5bcdffc4c1951af6
-    home: https://symfony.com
-    icon: https://symfony.com/logos/symfony_black_03.png
-    name: symfony-helm
-    type: application
-    urls:
-    - symfony-helm-0.3.2.tgz
-    version: 0.3.2
-  - apiVersion: v2
-    appVersion: 0.2.3
-    created: "2023-08-10T17:46:06.691306+04:00"
-    dependencies:
-    - condition: postgresql.enabled
-      name: postgresql
-      repository: https://charts.bitnami.com/bitnami/
-      version: ~12.1.14
-    - condition: external-dns.enabled
-      name: external-dns
-      repository: https://charts.bitnami.com/bitnami/
-      version: ~6.13.2
-    description: Symfony Helm Chart for Kubernetes
-    digest: 1c6d2b9e100a20050779764a3882984fc7615d697a77501dc60d02514639cb4c
-    home: https://symfony.com
-    icon: https://symfony.com/logos/symfony_black_03.png
-    name: symfony-helm
-    type: application
-    urls:
-    - symfony-helm-0.3.1.tgz
-    version: 0.3.1
-  - apiVersion: v2
-    appVersion: 0.2.3
-    created: "2023-08-10T17:46:06.68606+04:00"
-    dependencies:
-    - condition: postgresql.enabled
-      name: postgresql
-      repository: https://charts.bitnami.com/bitnami/
-      version: ~12.1.14
-    - condition: external-dns.enabled
-      name: external-dns
-      repository: https://charts.bitnami.com/bitnami/
-      version: ~6.13.2
-    description: Symfony Helm Chart for Kubernetes
-    digest: d3fc604cd9925b63250efa68815e113a2f8a4f2fe194076f85ed50ef7c0559d4
-    home: https://symfony.com
-    icon: https://symfony.com/logos/symfony_black_03.png
-    name: symfony-helm
-    type: application
-    urls:
-    - symfony-helm-0.3.0.tgz
-    version: 0.3.0
-generated: "2023-08-10T17:46:06.679667+04:00"
+    - symfony-0.5.0.tgz
+    version: 0.5.0
+generated: "2023-08-10T18:00:29.265736+04:00"

@@ -1,5 +1,5 @@
 apiVersion: v2
-name: symfony-helm
+name: symfony
 description: Symfony Helm Chart for Kubernetes
 home: https://symfony.com
 icon: https://symfony.com/logos/symfony_black_03.png
