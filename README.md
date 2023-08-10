@@ -1,6 +1,12 @@
-# Deploying to a Kubernetes Cluster
+# Deploying Symfony to a Kubernetes Cluster
 
-API Platform comes with a native integration with [Kubernetes](https://kubernetes.io/) and the [Helm](https://helm.sh/)
-package manager.
 
-[Learn how to deploy in the dedicated documentation entry](https://api-platform.com/docs/deployment/kubernetes/).
+## Add repository
+```shell
+helm repo add diazoxide https://raw.githubusercontent.com/diazoxide/symfony-helm/main
+``` 
+
+## Install chart
+```shell
+helm upgrade --install symfony diazoxide/symfony-helm --values values.yaml
+```
