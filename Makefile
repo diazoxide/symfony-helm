@@ -1,5 +1,6 @@
 new-version:
 	helm dep update
+	helm lint .
 	helm package . --version $(VERSION)
 	helm repo index .
 	git add .
