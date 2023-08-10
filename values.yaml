@@ -84,7 +84,9 @@ external-dns:
   rbac:
     create: true
 
-imagePullSecrets: []
+imagePullSecrets:
+  - name: test-regcred
+
 nameOverride: ""
 fullnameOverride: ""
 
