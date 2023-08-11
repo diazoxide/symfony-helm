@@ -82,7 +82,7 @@ postgresql:
         cpu: 1m
 
 external-dns:
-  enabled: true
+  enabled: false
   domainFilters:
     - chart-example.local
   provider: cloudflare

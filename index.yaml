@@ -6,7 +6,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 0.13.2
-    created: "2023-08-11T16:05:42.631056+04:00"
+    created: "2023-08-11T16:14:39.421177+04:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -39,7 +39,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 15.2.0
-    created: "2023-08-11T16:05:42.633607+04:00"
+    created: "2023-08-11T16:14:39.423485+04:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -74,7 +74,7 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 7.0.5
-    created: "2023-08-11T16:05:42.636992+04:00"
+    created: "2023-08-11T16:14:39.426804+04:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -102,8 +102,33 @@ entries:
     version: 17.3.8
   symfony:
   - apiVersion: v2
+    appVersion: 0.5.11
+    created: "2023-08-11T16:14:39.355486+04:00"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami/
+      version: ~12.1.14
+    - condition: external-dns.enabled
+      name: external-dns
+      repository: https://charts.bitnami.com/bitnami/
+      version: ~6.13.2
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 17.3.8
+    description: Symfony Helm Chart for Kubernetes
+    digest: 9433874800b8f39ba8e72be981e6eefc4a67796e2078bbccbd124dacba657848
+    home: https://symfony.com
+    icon: https://symfony.com/logos/symfony_black_03.png
+    name: symfony
+    type: application
+    urls:
+    - symfony-0.5.11.tgz
+    version: 0.5.11
+  - apiVersion: v2
     appVersion: 0.5.10
-    created: "2023-08-11T16:05:42.565282+04:00"
+    created: "2023-08-11T16:14:39.347059+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -128,7 +153,7 @@ entries:
     version: 0.5.10
   - apiVersion: v2
     appVersion: 0.5.9
-    created: "2023-08-11T16:05:42.629098+04:00"
+    created: "2023-08-11T16:14:39.419189+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -153,7 +178,7 @@ entries:
     version: 0.5.9
   - apiVersion: v2
     appVersion: 0.5.8
-    created: "2023-08-11T16:05:42.619793+04:00"
+    created: "2023-08-11T16:14:39.410578+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -178,7 +203,7 @@ entries:
     version: 0.5.8
   - apiVersion: v2
     appVersion: 0.5.7
-    created: "2023-08-11T16:05:42.611374+04:00"
+    created: "2023-08-11T16:14:39.401306+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -203,7 +228,7 @@ entries:
     version: 0.5.7
   - apiVersion: v2
     appVersion: 0.5.6
-    created: "2023-08-11T16:05:42.602938+04:00"
+    created: "2023-08-11T16:14:39.392974+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -228,7 +253,7 @@ entries:
     version: 0.5.6
   - apiVersion: v2
     appVersion: 0.5.5
-    created: "2023-08-11T16:05:42.594524+04:00"
+    created: "2023-08-11T16:14:39.383889+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -253,7 +278,7 @@ entries:
     version: 0.5.5
   - apiVersion: v2
     appVersion: 0.5.4
-    created: "2023-08-11T16:05:42.585656+04:00"
+    created: "2023-08-11T16:14:39.375403+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -278,7 +303,7 @@ entries:
     version: 0.5.4
   - apiVersion: v2
     appVersion: 0.5.3
-    created: "2023-08-11T16:05:42.576551+04:00"
+    created: "2023-08-11T16:14:39.366722+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -299,7 +324,7 @@ entries:
     version: 0.5.3
   - apiVersion: v2
     appVersion: 0.5.2
-    created: "2023-08-11T16:05:42.570731+04:00"
+    created: "2023-08-11T16:14:39.360766+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -320,7 +345,7 @@ entries:
     version: 0.5.2
   - apiVersion: v2
     appVersion: 0.5.1
-    created: "2023-08-11T16:05:42.556211+04:00"
+    created: "2023-08-11T16:14:39.337661+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -341,7 +366,7 @@ entries:
     version: 0.5.1
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2023-08-11T16:05:42.550865+04:00"
+    created: "2023-08-11T16:14:39.332407+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -360,4 +385,4 @@ entries:
     urls:
     - symfony-0.5.0.tgz
     version: 0.5.0
-generated: "2023-08-11T16:05:42.544213+04:00"
+generated: "2023-08-11T16:14:39.325922+04:00"
