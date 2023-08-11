@@ -84,6 +84,16 @@ spec:
                 secretKeyRef:
                   name: {{ include "api-platform.fullname" $ }}
                   key: database-url
+            - name: REDIS_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "api-platform.fullname" $ }}
+                  key: redis-host
+            - name: REDIS_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "api-platform.fullname" $ }}
+                  key: redis-port
             - name: MERCURE_URL
               valueFrom:
                 configMapKeyRef:

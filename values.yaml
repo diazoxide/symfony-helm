@@ -90,6 +90,25 @@ external-dns:
   rbac:
     create: true
 
+redis:
+    enabled: true
+### Use an external Redis instance
+#    external:
+#        enabled: true
+#        host: redis
+#        port: 6379
+    auth:
+        enabled: false
+    master:
+        persistence:
+            enabled: true
+            size: 10Gi
+        disableCommands: []
+    replica:
+        persistence:
+            enabled: true
+            size: 10Gi
+
 imagePullSecrets:
   - name: test-regcred
 

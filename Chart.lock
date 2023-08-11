@@ -5,5 +5,8 @@ dependencies:
 - name: external-dns
   repository: https://charts.bitnami.com/bitnami/
   version: 6.13.4
-digest: sha256:c59a451b4c1b2ded7052ea50c82b8a7f06b9036451a1ecd8ae882a3ff1a4bfef
-generated: "2023-08-10T02:33:40.261329+04:00"
+- name: redis
+  repository: https://charts.bitnami.com/bitnami
+  version: 17.3.8
+digest: sha256:1b93c2d915e41d8cecdebfa24b7fba0e7612b947ac55ab2fc71f8142bf4ded19
+generated: "2023-08-11T13:09:43.00988+04:00"

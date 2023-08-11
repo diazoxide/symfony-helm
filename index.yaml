@@ -6,7 +6,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 0.13.2
-    created: "2023-08-11T11:24:36.555722+04:00"
+    created: "2023-08-11T13:25:15.420384+04:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -39,7 +39,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 15.2.0
-    created: "2023-08-11T11:24:36.558249+04:00"
+    created: "2023-08-11T13:25:15.422695+04:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -69,10 +69,66 @@ entries:
     urls:
     - charts/postgresql-12.1.15.tgz
     version: 12.1.15
+  redis:
+  - annotations:
+      category: Database
+    apiVersion: v2
+    appVersion: 7.0.5
+    created: "2023-08-11T13:25:15.42618+04:00"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Redis(R) is an open source, advanced key-value store. It is often
+      referred to as a data structure server since keys can contain strings, hashes,
+      lists, sets and sorted sets.
+    digest: 4f8f4430d5c03c803ff0f8aff52324c8ab6d52381f14e9a3f784d4ad53cab144
+    home: https://github.com/bitnami/charts/tree/main/bitnami/redis
+    icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
+    keywords:
+    - redis
+    - keyvalue
+    - database
+    maintainers:
+    - name: Bitnami
+      url: https://github.com/bitnami/charts
+    name: redis
+    sources:
+    - https://github.com/bitnami/containers/tree/main/bitnami/redis
+    urls:
+    - charts/redis-17.3.8.tgz
+    version: 17.3.8
   symfony:
   - apiVersion: v2
+    appVersion: 0.5.4
+    created: "2023-08-11T13:25:15.418375+04:00"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami/
+      version: ~12.1.14
+    - condition: external-dns.enabled
+      name: external-dns
+      repository: https://charts.bitnami.com/bitnami/
+      version: ~6.13.2
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 17.3.8
+    description: Symfony Helm Chart for Kubernetes
+    digest: a01afe3d0c1ed7e8a4971a05f573556dc14c6cecdbfb1d9167c0849bf5efc052
+    home: https://symfony.com
+    icon: https://symfony.com/logos/symfony_black_03.png
+    name: symfony
+    type: application
+    urls:
+    - symfony-0.5.4.tgz
+    version: 0.5.4
+  - apiVersion: v2
     appVersion: 0.5.3
-    created: "2023-08-11T11:24:36.553703+04:00"
+    created: "2023-08-11T13:25:15.41001+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -93,7 +149,7 @@ entries:
     version: 0.5.3
   - apiVersion: v2
     appVersion: 0.5.2
-    created: "2023-08-11T11:24:36.548429+04:00"
+    created: "2023-08-11T13:25:15.404221+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -114,7 +170,7 @@ entries:
     version: 0.5.2
   - apiVersion: v2
     appVersion: 0.5.1
-    created: "2023-08-11T11:24:36.54255+04:00"
+    created: "2023-08-11T13:25:15.398091+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -135,7 +191,7 @@ entries:
     version: 0.5.1
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2023-08-11T11:24:36.537277+04:00"
+    created: "2023-08-11T13:25:15.392866+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -154,4 +210,4 @@ entries:
     urls:
     - symfony-0.5.0.tgz
     version: 0.5.0
-generated: "2023-08-11T11:24:36.530484+04:00"
+generated: "2023-08-11T13:25:15.38615+04:00"
