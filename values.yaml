@@ -23,6 +23,12 @@ php:
     secretKey: ""
     publicKey: ""
     passphrase: ""
+  jobs:
+      - name: fixtures
+        hooks: ["post-install", "post-upgrade"]
+        command: ['/bin/sh', '-c']
+        args: ["composer install --prefer-dist --no-progress --no-interaction && bin/console doctrine:fixtures:load --no-interaction"]
+        hookDeletePolicy: before-hook-creation
 
 pwa:
   image:
