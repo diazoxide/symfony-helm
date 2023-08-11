@@ -6,7 +6,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 0.13.2
-    created: "2023-08-11T11:24:17.565367+04:00"
+    created: "2023-08-11T11:24:36.555722+04:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -39,7 +39,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 15.2.0
-    created: "2023-08-11T11:24:17.567784+04:00"
+    created: "2023-08-11T11:24:36.558249+04:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -72,7 +72,7 @@ entries:
   symfony:
   - apiVersion: v2
     appVersion: 0.5.3
-    created: "2023-08-11T11:24:17.562541+04:00"
+    created: "2023-08-11T11:24:36.553703+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -83,7 +83,7 @@ entries:
       repository: https://charts.bitnami.com/bitnami/
       version: ~6.13.2
     description: Symfony Helm Chart for Kubernetes
-    digest: e1d4fbf0deb31e4f876109990a743392dd856042acec55a18ec44d2858d86a8f
+    digest: f899d6acf7081d68cbd559128dc701338793420c9a2710a9bc37da4fdd72c9cd
     home: https://symfony.com
     icon: https://symfony.com/logos/symfony_black_03.png
     name: symfony
@@ -93,7 +93,7 @@ entries:
     version: 0.5.3
   - apiVersion: v2
     appVersion: 0.5.2
-    created: "2023-08-11T11:24:17.557246+04:00"
+    created: "2023-08-11T11:24:36.548429+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -114,7 +114,7 @@ entries:
     version: 0.5.2
   - apiVersion: v2
     appVersion: 0.5.1
-    created: "2023-08-11T11:24:17.551086+04:00"
+    created: "2023-08-11T11:24:36.54255+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -135,7 +135,7 @@ entries:
     version: 0.5.1
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2023-08-11T11:24:17.545907+04:00"
+    created: "2023-08-11T11:24:36.537277+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -154,4 +154,4 @@ entries:
     urls:
     - symfony-0.5.0.tgz
     version: 0.5.0
-generated: "2023-08-11T11:24:17.53945+04:00"
+generated: "2023-08-11T11:24:36.530484+04:00"
