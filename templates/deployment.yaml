@@ -37,7 +37,7 @@ spec:
             - name: SERVER_NAME
               value: :80
             - name: PWA_UPSTREAM
-              value: {{ include "api-platform.fullname" . }}-pwa:9000
+              value: {{ include "api-platform.fullname" . }}-pwa:80
             - name: MERCURE_EXTRA_DIRECTIVES
               valueFrom:
                 configMapKeyRef:
