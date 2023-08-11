@@ -139,10 +139,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  annotations:
-    service.beta.kubernetes.io/vultr-loadbalancer-protocol: "http"
-    service.beta.kubernetes.io/vultr-loadbalancer-healthcheck-protocol: "http"
-    service.beta.kubernetes.io/vultr-loadbalancer-healthcheck-path: "/health"
+  annotations: []
   port: 80
 
 ingress:
