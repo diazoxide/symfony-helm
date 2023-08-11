@@ -24,6 +24,8 @@ php:
     publicKey: ""
     passphrase: ""
   jobs: []
+  messenger:
+      enabled: true
 #      - name: fixtures
 #        hooks: ["post-install", "post-upgrade"]
 #        command: ['/bin/sh', '-c']

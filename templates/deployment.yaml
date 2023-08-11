@@ -138,7 +138,7 @@ spec:
             - name: DATABASE_URL
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "api-platform.fullname" $ }}
                   key: database-url
             - name: REDIS_HOST
               valueFrom:
@@ -190,6 +190,7 @@ spec:
             periodSeconds: 3
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+        {{- if .Values.php.messenger.enabled }}
         - name: {{ .Chart.Name }}-consumer
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
@@ -252,6 +253,16 @@ spec:
                 secretKeyRef:
                   name: {{ include "api-platform.fullname" . }}
                   key: database-url
+            - name: REDIS_HOST
+              valueFrom:
+                  secretKeyRef:
+                      name: {{ include "api-platform.fullname" . }}
+                      key: redis-host
+            - name: REDIS_PORT
+              valueFrom:
+                    secretKeyRef:
+                        name: {{ include "api-platform.fullname" . }}
+                        key: redis-port
             - name: MERCURE_URL
               valueFrom:
                 configMapKeyRef:
@@ -282,6 +293,7 @@ spec:
             periodSeconds: 3
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+        {{- end }}  
       volumes:
       - name: php-socket
         emptyDir: {}
