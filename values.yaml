@@ -141,7 +141,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  annotations: []
+  annotations: {}
   port: 80
 
 ingress:
