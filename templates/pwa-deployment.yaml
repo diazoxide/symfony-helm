@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "api-platform.fullname" . }}-pwa
+  name: {{ include "diazoxide-symfony.fullname" . }}-pwa
   labels:
-    {{- include "api-platform.labelsPWA" . | nindent 4 }}
+    {{- include "diazoxide-symfony.labelsPWA" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "api-platform.selectorLabelsPWA" . | nindent 6 }}
+      {{- include "diazoxide-symfony.selectorLabelsPWA" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,13 +18,13 @@ spec:
         {`{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "api-platform.selectorLabelsPWA" . | nindent 8 }}
+        {{- include "diazoxide-symfony.selectorLabelsPWA" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "api-platform.serviceAccountName" . }}
+      serviceAccountName: {{ include "diazoxide-symfony.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -35,7 +35,7 @@ spec:
           imagePullPolicy: {{ .Values.pwa.image.pullPolicy }}
           env:
             - name: NEXT_PUBLIC_ENTRYPOINT
-              value: http://{{ include "api-platform.fullname" . }}
+              value: http://{{ include "diazoxide-symfony.fullname" . }}
           ports:
             - name: http
               containerPort: 80

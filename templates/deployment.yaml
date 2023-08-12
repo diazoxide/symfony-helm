@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "api-platform.fullname" . }}
+  name: {{ include "diazoxide-symfony.fullname" . }}
   labels:
-    {{- include "api-platform.labels" . | nindent 4 }}
+    {{- include "diazoxide-symfony.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "api-platform.selectorLabels" . | nindent 6 }}
+      {{- include "diazoxide-symfony.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,13 +18,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "api-platform.selectorLabels" . | nindent 8 }}
+        {{- include "diazoxide-symfony.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "api-platform.serviceAccountName" . }}
+      serviceAccountName: {{ include "diazoxide-symfony.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -37,21 +37,21 @@ spec:
             - name: SERVER_NAME
               value: :80
             - name: PWA_UPSTREAM
-              value: {{ include "api-platform.fullname" . }}-pwa:80
+              value: {{ include "diazoxide-symfony.fullname" . }}-pwa:80
             - name: MERCURE_EXTRA_DIRECTIVES
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: mercure-extra-directives
             - name: MERCURE_PUBLISHER_JWT_KEY
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: mercure-jwt-secret
             - name: MERCURE_SUBSCRIBER_JWT_KEY
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: mercure-jwt-secret
           ports:
             - name: http
@@ -88,82 +88,82 @@ spec:
             - name: API_ENTRYPOINT_HOST
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: php-host
             - name: JWT_PASSPHRASE
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: php-jwt-passphrase
             - name: JWT_PUBLIC_KEY
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: php-jwt-public-key
             - name: JWT_SECRET_KEY
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: php-jwt-secret-key
             - name: TRUSTED_HOSTS
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: php-trusted-hosts
             - name: TRUSTED_PROXIES
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: php-trusted-proxies
             - name: APP_ENV
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: php-app-env
             - name: APP_DEBUG
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: php-app-debug
             - name: APP_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: php-app-secret
             - name: CORS_ALLOW_ORIGIN
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: php-cors-allow-origin
             - name: DATABASE_URL
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" $ }}
+                  name: {{ include "diazoxide-symfony.fullname" $ }}
                   key: database-url
             - name: REDIS_HOST
               valueFrom:
                   secretKeyRef:
-                      name: {{ include "api-platform.fullname" $ }}
+                      name: {{ include "diazoxide-symfony.fullname" $ }}
                       key: redis-host
             - name: REDIS_PORT
               valueFrom:
                   secretKeyRef:
-                      name: {{ include "api-platform.fullname" $ }}
+                      name: {{ include "diazoxide-symfony.fullname" $ }}
                       key: redis-port
             - name: MERCURE_URL
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: mercure-url
             - name: MERCURE_PUBLIC_URL
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: mercure-public-url
             - name: MERCURE_JWT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: mercure-jwt-secret
           volumeMounts:
             - mountPath: /var/run/php
@@ -201,82 +201,82 @@ spec:
             - name: API_ENTRYPOINT_HOST
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: php-host
             - name: JWT_PASSPHRASE
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: php-jwt-passphrase
             - name: JWT_PUBLIC_KEY
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: php-jwt-public-key
             - name: JWT_SECRET_KEY
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: php-jwt-secret-key
             - name: TRUSTED_HOSTS
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: php-trusted-hosts
             - name: TRUSTED_PROXIES
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: php-trusted-proxies
             - name: APP_ENV
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: php-app-env
             - name: APP_DEBUG
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: php-app-debug
             - name: APP_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: php-app-secret
             - name: CORS_ALLOW_ORIGIN
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: php-cors-allow-origin
             - name: DATABASE_URL
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: database-url
             - name: REDIS_HOST
               valueFrom:
                   secretKeyRef:
-                      name: {{ include "api-platform.fullname" . }}
+                      name: {{ include "diazoxide-symfony.fullname" . }}
                       key: redis-host
             - name: REDIS_PORT
               valueFrom:
                     secretKeyRef:
-                        name: {{ include "api-platform.fullname" . }}
+                        name: {{ include "diazoxide-symfony.fullname" . }}
                         key: redis-port
             - name: MERCURE_URL
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: mercure-url
             - name: MERCURE_PUBLIC_URL
               valueFrom:
                 configMapKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: mercure-public-url
             - name: MERCURE_JWT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "api-platform.fullname" . }}
+                  name: {{ include "diazoxide-symfony.fullname" . }}
                   key: mercure-jwt-secret
           startupProbe:
             exec:

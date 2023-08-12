@@ -2,14 +2,14 @@
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "api-platform.fullname" . }}
+  name: {{ include "diazoxide-symfony.fullname" . }}
   labels:
-    {{- include "api-platform.labels" . | nindent 4 }}
+    {{- include "diazoxide-symfony.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "api-platform.fullname" . }}
+    name: {{ include "diazoxide-symfony.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:

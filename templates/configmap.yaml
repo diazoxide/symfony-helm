@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ include "api-platform.fullname" . }}
+  name: {{ include "diazoxide-symfony.fullname" . }}
   labels:
-    {{- include "api-platform.labels" . | nindent 4 }}
+    {{- include "diazoxide-symfony.labels" . | nindent 4 }}
 data:
   php-host: {{ .Values.php.host | quote }}
   php-app-env: {{ .Values.php.appEnv | quote }}
@@ -11,6 +11,6 @@ data:
   php-cors-allow-origin: {{ .Values.php.corsAllowOrigin | quote }}
   php-trusted-hosts: {{ .Values.php.trustedHosts | quote }}
   php-trusted-proxies: "{{ join "," .Values.php.trustedProxies }}"
-  mercure-url: "http://{{ include "api-platform.fullname" . }}/.well-known/mercure"
+  mercure-url: "http://{{ include "diazoxide-symfony.fullname" . }}/.well-known/mercure"
   mercure-public-url: {{ .Values.mercure.publicUrl | default "http://127.0.0.1/.well-known/mercure" | quote }}
   mercure-extra-directives: {{ .Values.mercure.extraDirectives | quote }}

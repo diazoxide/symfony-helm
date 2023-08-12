@@ -1,10 +1,10 @@
-# Default values for api-platform.
+# Default values for diazoxide-symfony.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 php:
   image:
-    repository: "api-example.local/api-platform/php"
+    repository: "api-example.local/diazoxide-symfony/php"
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
     tag: ""
@@ -34,14 +34,14 @@ php:
 
 pwa:
   image:
-    repository: "api-example.local/api-platform/pwa"
+    repository: "api-example.local/diazoxide-symfony/pwa"
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
     tag: ""
 
 caddy:
   image:
-    repository: "api-example.local/api-platform/caddy"
+    repository: "api-example.local/diazoxide-symfony/caddy"
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
     tag: ""
@@ -58,7 +58,7 @@ postgresql:
   # If false, then url will be used to configure the database connection
   enabled: false
   # To use an external PostgreSQL instance, set enabled to false and configure the external host
-  url: postgresql://api-platform:!ChangeMe!@database:5432/api?serverVersion=13&charset=utf8
+  url: postgresql://diazoxide-symfony:!ChangeMe!@database:5432/api?serverVersion=13&charset=utf8
   global:
     postgresql:
       auth:
