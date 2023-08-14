@@ -113,9 +113,6 @@ spec:
             preStop:
               exec:
                 command: ["/bin/sh", "-c", "/bin/sleep 1; kill -QUIT 1"]
-          startupProbe: {}
-          readinessProbe: {}
-          livenessProbe: {}
           resources:
             {{- toYaml $.Values.resources | nindent 12 }}
       {{- with $.Values.nodeSelector }}

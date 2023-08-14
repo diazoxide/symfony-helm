@@ -6,7 +6,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 0.13.2
-    created: "2023-08-12T05:51:44.911376+04:00"
+    created: "2023-08-15T01:40:27.522734+04:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -39,7 +39,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 15.2.0
-    created: "2023-08-12T05:51:44.913684+04:00"
+    created: "2023-08-15T01:40:27.525085+04:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -74,7 +74,7 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 7.0.5
-    created: "2023-08-12T05:51:44.917213+04:00"
+    created: "2023-08-15T01:40:27.528157+04:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -102,8 +102,33 @@ entries:
     version: 17.3.8
   symfony:
   - apiVersion: v2
+    appVersion: 1.0.2
+    created: "2023-08-15T01:40:27.520034+04:00"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami/
+      version: ~12.1.14
+    - condition: external-dns.enabled
+      name: external-dns
+      repository: https://charts.bitnami.com/bitnami/
+      version: ~6.13.2
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 17.3.8
+    description: Symfony Helm Chart for Kubernetes
+    digest: 40c1906ee449f54d3ea9bb33c57ad1c9d155550b11db6c6eed742af68d79ac96
+    home: https://symfony.com
+    icon: https://symfony.com/logos/symfony_black_03.png
+    name: symfony
+    type: application
+    urls:
+    - symfony-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     appVersion: 1.0.1
-    created: "2023-08-12T05:51:44.909437+04:00"
+    created: "2023-08-15T01:40:27.511788+04:00"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -126,4 +151,4 @@ entries:
     urls:
     - symfony-1.0.1.tgz
     version: 1.0.1
-generated: "2023-08-12T05:51:44.900697+04:00"
+generated: "2023-08-15T01:40:27.502478+04:00"
