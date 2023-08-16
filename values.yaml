@@ -81,24 +81,11 @@ postgresql:
         memory: 50Mi
         cpu: 1m
 
-external-dns:
-  enabled: false
-  domainFilters:
-    - api-example.local
-  provider: cloudflare
-  cloudflare:
-    apiToken: ""
-  zoneIdFilters: []
-  rbac:
-    create: true
-
 redis:
+    # If false, then url will be used to configure the redis connection
     enabled: true
-### Use an external Redis instance
-#    external:
-#        enabled: true
-#        host: redis
-#        port: 6379
+    # To use an external redis instance, set enabled to false and configure the external host
+    url: redis://redis:6379
     auth:
         enabled: false
     master:
@@ -110,6 +97,17 @@ redis:
         persistence:
             enabled: true
             size: 10Gi
+
+external-dns:
+    enabled: false
+    domainFilters:
+        - api-example.local
+    provider: cloudflare
+    cloudflare:
+        apiToken: ""
+    zoneIdFilters: []
+    rbac:
+        create: true
 
 imagePullSecrets:
   - name: test-regcred

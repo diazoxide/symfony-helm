@@ -5,4 +5,4 @@ new-version:
 	helm repo index .
 	git add .
 	git commit -m "Version release $(VERSION)"
-	git tag -a $(VERSION) -m "Version release $(VERSION)"; git push origin main --tags
+	git tag -a $(VERSION) -m "Version release $(VERSION): $(MESSAGE)}"; git push origin main --tags

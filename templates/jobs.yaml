@@ -84,16 +84,11 @@ spec:
                 secretKeyRef:
                   name: {{ include "diazoxide-symfony.fullname" $ }}
                   key: database-url
-            - name: REDIS_HOST
+            - name: REDIS_URL
               valueFrom:
                 secretKeyRef:
                   name: {{ include "diazoxide-symfony.fullname" $ }}
-                  key: redis-host
-            - name: REDIS_PORT
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "diazoxide-symfony.fullname" $ }}
-                  key: redis-port
+                  key: redis-url
             - name: MERCURE_URL
               valueFrom:
                 configMapKeyRef:
