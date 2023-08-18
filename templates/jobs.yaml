@@ -68,12 +68,12 @@ spec:
             -   name: APP_ENV
                 valueFrom:
                     configMapKeyRef:
-                        name: {{ include "diazoxide-symfony.fullname" . }}
+                        name: {{ include "diazoxide-symfony.fullname" $ }}
                         key: php-app-env
             -   name: APP_DEBUG
                 valueFrom:
                     configMapKeyRef:
-                        name: {{ include "diazoxide-symfony.fullname" . }}
+                        name: {{ include "diazoxide-symfony.fullname" $ }}
                         key: php-app-debug
             - name: APP_SECRET
               valueFrom:
