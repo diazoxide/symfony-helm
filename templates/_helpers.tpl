@@ -90,3 +90,84 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Env vars for the php containers
+*/}}
+{{- define "diazoxide-symfony.env" -}}
+- name: API_ENTRYPOINT_HOST
+  valueFrom:
+    configMapKeyRef:
+      name: {{ include "diazoxide-symfony.fullname" . }}
+      key: php-host
+- name: JWT_PASSPHRASE
+  valueFrom:
+    secretKeyRef:
+      name: {{ include "diazoxide-symfony.fullname" . }}
+      key: php-jwt-passphrase
+- name: JWT_PUBLIC_KEY
+  valueFrom:
+    secretKeyRef:
+      name: {{ include "diazoxide-symfony.fullname" . }}
+      key: php-jwt-public-key
+- name: JWT_SECRET_KEY
+  valueFrom:
+    secretKeyRef:
+      name: {{ include "diazoxide-symfony.fullname" . }}
+      key: php-jwt-secret-key
+- name: TRUSTED_HOSTS
+  valueFrom:
+    configMapKeyRef:
+      name: {{ include "diazoxide-symfony.fullname" . }}
+      key: php-trusted-hosts
+- name: TRUSTED_PROXIES
+  valueFrom:
+    configMapKeyRef:
+      name: {{ include "diazoxide-symfony.fullname" . }}
+      key: php-trusted-proxies
+- name: APP_ENV
+  valueFrom:
+    configMapKeyRef:
+      name: {{ include "diazoxide-symfony.fullname" . }}
+      key: php-app-env
+- name: APP_DEBUG
+  valueFrom:
+    configMapKeyRef:
+      name: {{ include "diazoxide-symfony.fullname" . }}
+      key: php-app-debug
+- name: APP_SECRET
+  valueFrom:
+    secretKeyRef:
+      name: {{ include "diazoxide-symfony.fullname" . }}
+      key: php-app-secret
+- name: CORS_ALLOW_ORIGIN
+  valueFrom:
+    configMapKeyRef:
+      name: {{ include "diazoxide-symfony.fullname" . }}
+      key: php-cors-allow-origin
+- name: DATABASE_URL
+  valueFrom:
+    secretKeyRef:
+      name: {{ include "diazoxide-symfony.fullname" . }}
+      key: database-url
+- name: REDIS_URL
+  valueFrom:
+    secretKeyRef:
+      name: {{ include "diazoxide-symfony.fullname" . }}
+      key: redis-url
+- name: MERCURE_URL
+  valueFrom:
+    configMapKeyRef:
+      name: {{ include "diazoxide-symfony.fullname" . }}
+      key: mercure-url
+- name: MERCURE_PUBLIC_URL
+  valueFrom:
+    configMapKeyRef:
+      name: {{ include "diazoxide-symfony.fullname" . }}
+      key: mercure-public-url
+- name: MERCURE_JWT_SECRET
+  valueFrom:
+    secretKeyRef:
+      name: {{ include "diazoxide-symfony.fullname" . }}
+      key: mercure-jwt-secret
+{{- end }}

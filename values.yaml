@@ -24,6 +24,16 @@ php:
     publicKey: ""
     passphrase: ""
   jobs: []
+#      - name : "demo"
+#        hooks: [ post-install, post-upgrade ]
+#        hookDeletePolicy: before-hook-creation
+#        command: ["sleep"]
+#        args: ["5"]
+  cronJobs: []
+#      - name: "demo" 
+#        schedule: "*/10 * * * *"
+#        command: ["sleep"]
+#        args: ["5"]
   messenger:
     enabled: false
 #      - name: fixtures
