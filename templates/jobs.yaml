@@ -1,4 +1,5 @@
-{{ range .Values.php.jobs }}
+{{- range .Values.php.jobs }}
+---
 apiVersion: batch/v1
 kind: Job
 metadata:
