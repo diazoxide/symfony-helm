@@ -7,7 +7,17 @@ metadata:
   labels:
     {{- include "diazoxide-symfony.labels" $ | nindent 4 }}
 spec:
-  schedule: {{ .schedule | quote }}
+  schedule: {{ .schedule | quote }} # MM HH DD MM WKD -- Minutes, Hour, Day, Month, Weekday (eg. Sun, Mon)
+  successfulJobsHistoryLimit: 1 # how many completed jobs should be kept
+  failedJobsHistoryLimit: 1 # how many failed jobs should be kept
+  concurrencyPolicy: Forbid # Choose Forbid if you don't want concurrent executions of your Job
+  suspend: false # Here you can suspend cronjob without deliting it
+
+  # The amount of time that Kubernetes can miss and still start a job.
+  # If Kubernetes missed too many job starts (100)
+  # then Kubernetes logs an error and does not start any future jobs.
+  startingDeadlineSeconds: 300 # if a job hasn't started in this many seconds, skip
+  
   jobTemplate:
     metadata:
       annotations:
@@ -15,6 +25,10 @@ spec:
       labels:
         {{- include "diazoxide-symfony.selectorLabels" $ | nindent 8 }}
     spec:
+      parallelism: 1 # How many pods will be instantiated at once.
+      completions: 1 # How many containers of the job are instantiated one after the other (sequentially) inside the pod.
+      backoffLimit: 3 # Maximum pod restarts in case of failure
+      activeDeadlineSeconds: 1800 # Limit the time for which a Job can continue to run
       template:
         spec:
           {{- with $.Values.imagePullSecrets }}
