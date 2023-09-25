@@ -14,3 +14,6 @@ data:
   mercure-url: "http://{{ include "diazoxide-symfony.fullname" . }}/.well-known/mercure"
   mercure-public-url: {{ .Values.mercure.publicUrl | default "http://127.0.0.1/.well-known/mercure" | quote }}
   mercure-extra-directives: {{ .Values.mercure.extraDirectives | quote }}
+  {{- range $key, $value := .Values.php.env }}
+  {{ $key }}: {{ $value | quote }}
+  {{- end }}

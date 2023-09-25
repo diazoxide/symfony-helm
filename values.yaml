@@ -23,6 +23,12 @@ php:
     secretKey: ""
     publicKey: ""
     passphrase: ""
+  secrets: 
+    SOME_SECRET_1: "somevalue_1"
+    SOME_SECRET_2: "somevalue_2"
+  env: 
+    SOME_ENV: "somevalue"
+      
   jobs: []
 #      - name : "demo"
 #        hooks: [ post-install, post-upgrade ]
