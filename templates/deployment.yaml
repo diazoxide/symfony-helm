@@ -34,6 +34,8 @@ spec:
           image: "{{ .Values.frankenphp.image.repository }}:{{ .Values.frankenphp.image.tag }}"
           imagePullPolicy: {{ .Values.frankenphp.image.pullPolicy }}
           env:
+            - name: SERVER_NAME
+              value: ":80"
             {{- include "diazoxide-symfony.env" . | nindent 12 }}
           ports:
           - name: http
