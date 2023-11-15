@@ -1,4 +1,4 @@
-{{- range .Values.php.jobs }}
+{{- range .Values.frankenphp.jobs }}
 ---
 apiVersion: batch/v1
 kind: Job
@@ -29,8 +29,8 @@ spec:
         - name: {{ $.Chart.Name }}-{{.name}}
           securityContext:
             {{- toYaml $.Values.securityContext | nindent 12 }}
-          image: "{{ $.Values.php.image.repository }}:{{ $.Values.php.image.tag }}"
-          imagePullPolicy: {{ $.Values.php.image.pullPolicy }}
+          image: "{{ $.Values.frankenphp.image.repository }}:{{ $.Values.frankenphp.image.tag }}"
+          imagePullPolicy: {{ $.Values.frankenphp.image.pullPolicy }}
           command: 
             {{- toYaml .command | nindent 12 }}
           args: 

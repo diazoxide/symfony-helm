@@ -1,4 +1,4 @@
-{{- range .Values.php.cronJobs }}
+{{- range .Values.frankenphp.cronJobs }}
 ---
 apiVersion: batch/v1
 kind: CronJob
@@ -41,8 +41,8 @@ spec:
             - name: {{ $.Chart.Name }}-cronjob
               securityContext:
                 {{- toYaml $.Values.securityContext | nindent 16 }}
-              image: "{{ $.Values.php.image.repository }}:{{ $.Values.php.image.tag }}"
-              imagePullPolicy: {{ $.Values.php.image.pullPolicy }}
+              image: "{{ $.Values.frankenphp.image.repository }}:{{ $.Values.frankenphp.image.tag }}"
+              imagePullPolicy: {{ $.Values.frankenphp.image.pullPolicy }}
               command:
                 {{- toYaml .command | nindent 16 }}
               args:

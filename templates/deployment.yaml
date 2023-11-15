@@ -28,64 +28,17 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        - name: {{ .Chart.Name }}-caddy
+        - name: {{ .Chart.Name }}-frankenphp
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.caddy.image.repository }}:{{ .Values.caddy.image.tag }}"
-          imagePullPolicy: {{ .Values.caddy.image.pullPolicy }}
-          env:
-            - name: SERVER_NAME
-              value: :80
-            - name: PWA_UPSTREAM
-              value: {{ include "diazoxide-symfony.fullname" . }}-pwa:80
-            - name: MERCURE_EXTRA_DIRECTIVES
-              valueFrom:
-                configMapKeyRef:
-                  name: {{ include "diazoxide-symfony.fullname" . }}
-                  key: mercure-extra-directives
-            - name: MERCURE_PUBLISHER_JWT_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "diazoxide-symfony.fullname" . }}
-                  key: mercure-jwt-secret
-            - name: MERCURE_SUBSCRIBER_JWT_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "diazoxide-symfony.fullname" . }}
-                  key: mercure-jwt-secret
-          ports:
-            - name: http
-              containerPort: 80
-              protocol: TCP
-            - name: admin
-              containerPort: 2019
-              protocol: TCP
-          volumeMounts:
-            - mountPath: /var/run/php
-              name: php-socket
-          lifecycle:
-            preStop:
-              exec:
-                command: ["curl", "-XPOST", "http://localhost:2019/stop"]
-          readinessProbe:
-            tcpSocket:
-              port: 80
-            initialDelaySeconds: 3
-            periodSeconds: 3
-          livenessProbe:
-            tcpSocket:
-              port: 80
-            initialDelaySeconds: 3
-            periodSeconds: 3
-          resources:
-            {{- toYaml .Values.resources | nindent 12 }}
-        - name: {{ .Chart.Name }}-php
-          securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.php.image.repository }}:{{ .Values.php.image.tag }}"
-          imagePullPolicy: {{ .Values.php.image.pullPolicy }}
+          image: "{{ .Values.frankenphp.image.repository }}:{{ .Values.frankenphp.image.tag }}"
+          imagePullPolicy: {{ .Values.frankenphp.image.pullPolicy }}
           env:
             {{- include "diazoxide-symfony.env" . | nindent 12 }}
+          ports:
+          - name: http
+            containerPort: 80
+            protocol: TCP
           volumeMounts:
             - mountPath: /var/run/php
               name: php-socket
@@ -111,12 +64,12 @@ spec:
             periodSeconds: 3
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-        {{- if .Values.php.messenger.enabled }}
+        {{- if .Values.frankenphp.messenger.enabled }}
         - name: {{ .Chart.Name }}-consumer
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.php.image.repository }}:{{ .Values.php.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.php.image.pullPolicy }}
+          image: "{{ .Values.frankenphp.image.repository }}:{{ .Values.frankenphp.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.frankenphp.image.pullPolicy }}
           args: ['bin/console', 'messenger:consume']
           env:
             {{- include "diazoxide-symfony.env" . | nindent 12 }}

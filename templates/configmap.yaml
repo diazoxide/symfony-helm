@@ -5,15 +5,15 @@ metadata:
   labels:
     {{- include "diazoxide-symfony.labels" . | nindent 4 }}
 data:
-  php-host: {{ .Values.php.host | quote }}
-  php-app-env: {{ .Values.php.appEnv | quote }}
-  php-app-debug: {{ .Values.php.appDebug | quote }}
-  php-cors-allow-origin: {{ .Values.php.corsAllowOrigin | quote }}
-  php-trusted-hosts: {{ .Values.php.trustedHosts | quote }}
-  php-trusted-proxies: "{{ join "," .Values.php.trustedProxies }}"
+  php-host: {{ .Values.frankenphp.host | quote }}
+  php-app-env: {{ .Values.frankenphp.appEnv | quote }}
+  php-app-debug: {{ .Values.frankenphp.appDebug | quote }}
+  php-cors-allow-origin: {{ .Values.frankenphp.corsAllowOrigin | quote }}
+  php-trusted-hosts: {{ .Values.frankenphp.trustedHosts | quote }}
+  php-trusted-proxies: "{{ join "," .Values.frankenphp.trustedProxies }}"
   mercure-url: "http://{{ include "diazoxide-symfony.fullname" . }}/.well-known/mercure"
   mercure-public-url: {{ .Values.mercure.publicUrl | default "http://127.0.0.1/.well-known/mercure" | quote }}
   mercure-extra-directives: {{ .Values.mercure.extraDirectives | quote }}
-  {{- range $key, $value := .Values.php.env }}
+  {{- range $key, $value := .Values.frankenphp.env }}
   {{ $key }}: {{ $value | quote }}
   {{- end }}

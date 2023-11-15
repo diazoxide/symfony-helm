@@ -170,14 +170,14 @@ Env vars for the php containers
     secretKeyRef:
       name: {{ include "diazoxide-symfony.fullname" . }}
       key: mercure-jwt-secret
-{{- range $key, $value := .Values.php.secrets }}
+{{- range $key, $value := .Values.frankenphp.secrets }}
 - name: {{ $key }}
   valueFrom:
     secretKeyRef:
       name: {{ include "diazoxide-symfony.fullname" $ }}
       key: {{ $key }}
 {{- end }}
-{{- range $key, $value := .Values.php.env }}
+{{- range $key, $value := .Values.frankenphp.env }}
 - name: {{ $key }}
   valueFrom:
     configMapKeyRef:
