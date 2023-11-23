@@ -49,20 +49,20 @@ spec:
               exec:
                 command: ["/bin/sh", "-c", "/bin/sleep 1; kill -QUIT 1"]
           startupProbe:
-            exec:
-              command:
-                - docker-healthcheck
+            httpGet:
+              path: /metrics
+              port: 2019
             failureThreshold: 40
             periodSeconds: 3
           readinessProbe:
-            exec:
-              command:
-                - docker-healthcheck
+            httpGet:
+              path: /metrics
+              port: 2019
             periodSeconds: 3
           livenessProbe:
-            exec:
-              command:
-                - docker-healthcheck
+            httpGet:
+              path: /metrics
+              port: 2019
             periodSeconds: 3
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
