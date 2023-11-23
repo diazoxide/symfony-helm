@@ -51,12 +51,6 @@ spec:
             preStop:
               exec:
                 command: ["/bin/sh", "-c", "/bin/sleep 1; kill -QUIT 1"]
-          startupProbe:
-            httpGet:
-              path: /metrics
-              port: metrics
-            failureThreshold: 40
-            periodSeconds: 3
           readinessProbe:
             httpGet:
               path: /metrics
