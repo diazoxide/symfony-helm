@@ -41,7 +41,7 @@ spec:
             - name: {{ $.Chart.Name }}-cronjob
               securityContext:
                 {{- toYaml $.Values.securityContext | nindent 16 }}
-              image: "{{ $.Values.frankenphp.image.repository }}:{{ $.Values.frankenphp.image.tag }}"
+              image: "{{ $.Values.frankenphp.image.repository }}:{{ $.Values.frankenphp.image.tag | default $.Chart.AppVersion }}"
               imagePullPolicy: {{ $.Values.frankenphp.image.pullPolicy }}
               command:
                 {{- toYaml .command | nindent 16 }}

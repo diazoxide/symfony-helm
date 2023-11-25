@@ -36,6 +36,11 @@ spec:
           env:
             - name: SERVER_NAME
               value: ":80"
+            - name: CADDY_EXTRA_CONFIG
+              value: |
+                  :2019 {
+                     metrics
+                  }
             {{- include "diazoxide-symfony.env" . | nindent 12 }}
           ports:
           - name: http
@@ -43,7 +48,7 @@ spec:
             protocol: TCP
           - name: metrics
             containerPort: 2019
-            protocol: TCP  
+            protocol: TCP
           volumeMounts:
             - mountPath: /var/run/php
               name: php-socket
@@ -51,15 +56,21 @@ spec:
             preStop:
               exec:
                 command: ["/bin/sh", "-c", "/bin/sleep 1; kill -QUIT 1"]
+          startupProbe:
+              httpGet:
+                  path: /metrics
+                  port: metrics
+              failureThreshold: 40
+              periodSeconds: 3
           readinessProbe:
             httpGet:
-              path: /metrics
-              port: metrics
+                path: /metrics
+                port: metrics
             periodSeconds: 3
           livenessProbe:
             httpGet:
-              path: /metrics
-              port: metrics
+                path: /metrics
+                port: metrics
             periodSeconds: 3
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
