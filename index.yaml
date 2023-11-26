@@ -6,7 +6,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 0.13.2
-    created: "2023-11-25T20:12:07.540259135Z"
+    created: "2023-11-26T14:58:53.244918585Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -39,7 +39,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 15.2.0
-    created: "2023-11-25T20:12:07.54297451Z"
+    created: "2023-11-26T14:58:53.256700835Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -74,7 +74,7 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 7.0.5
-    created: "2023-11-25T20:12:07.546552968Z"
+    created: "2023-11-26T14:58:53.270495335Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -102,8 +102,33 @@ entries:
     version: 17.3.8
   symfony:
   - apiVersion: v2
+    appVersion: 1.1.7
+    created: "2023-11-26T14:58:53.233706876Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami/
+      version: ~12.1.14
+    - condition: external-dns.enabled
+      name: external-dns
+      repository: https://charts.bitnami.com/bitnami/
+      version: ~6.13.2
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 17.3.8
+    description: Symfony Helm Chart for Kubernetes
+    digest: 97eec9a8730b4a9f617f4042c4d549d0086ee97f8dbe223b5c912e246d88da90
+    home: https://symfony.com
+    icon: https://symfony.com/logos/symfony_black_03.png
+    name: symfony
+    type: application
+    urls:
+    - symfony-1.1.7.tgz
+    version: 1.1.7
+  - apiVersion: v2
     appVersion: 1.1.6
-    created: "2023-11-25T20:12:07.537266801Z"
+    created: "2023-11-26T14:58:53.22318896Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -126,4 +151,4 @@ entries:
     urls:
     - symfony-1.1.6.tgz
     version: 1.1.6
-generated: "2023-11-25T20:12:07.528385176Z"
+generated: "2023-11-26T14:58:53.205888543Z"
