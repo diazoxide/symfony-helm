@@ -6,7 +6,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 0.13.2
-    created: "2023-11-26T15:01:45.583718845Z"
+    created: "2023-11-26T15:04:56.930048461Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -39,7 +39,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 15.2.0
-    created: "2023-11-26T15:01:45.604331387Z"
+    created: "2023-11-26T15:04:56.958505795Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -74,7 +74,7 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 7.0.5
-    created: "2023-11-26T15:01:45.61741697Z"
+    created: "2023-11-26T15:04:56.987201837Z"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -103,7 +103,7 @@ entries:
   symfony:
   - apiVersion: v2
     appVersion: 1.1.6
-    created: "2023-11-26T15:01:45.570322179Z"
+    created: "2023-11-26T15:04:56.861563378Z"
     dependencies:
     - condition: postgresql.enabled
       name: postgresql
@@ -118,7 +118,7 @@ entries:
       repository: https://charts.bitnami.com/bitnami
       version: 17.3.8
     description: Symfony Helm Chart for Kubernetes
-    digest: 62f3d4b6151e35ddd0c367ac795d74008d1fac4283b4bbe8aabb66c0cddbf560
+    digest: cf10217db21a1237c2de23daf5510001426a83146dfa32ba612d446dcc3f91fa
     home: https://symfony.com
     icon: https://symfony.com/logos/symfony_black_03.png
     name: symfony
@@ -126,4 +126,4 @@ entries:
     urls:
     - symfony-1.1.6.tgz
     version: 1.1.6
-generated: "2023-11-26T15:01:45.503372429Z"
+generated: "2023-11-26T15:04:56.794528961Z"
