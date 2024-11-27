@@ -28,7 +28,24 @@ frankenphp:
     SOME_SECRET_2: "somevalue_2"
   env: 
     SOME_ENV: "somevalue"
-      
+  
+  startupProbe:
+      httpGet:
+          path: /metrics
+          port: metrics
+      failureThreshold: 40
+      periodSeconds: 3
+  readinessProbe:
+      httpGet:
+          path: /metrics
+          port: metrics
+      periodSeconds: 3
+  livenessProbe:
+      httpGet:
+          path: /metrics
+          port: metrics
+      periodSeconds: 3
+  
   jobs: []
 #      - name : "demo"
 #        hooks: [ post-install, post-upgrade ]

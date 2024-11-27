@@ -57,21 +57,11 @@ spec:
               exec:
                 command: ["/bin/sh", "-c", "/bin/sleep 1; kill -QUIT 1"]
           startupProbe:
-            httpGet:
-              path: /metrics
-              port: metrics
-            failureThreshold: 40
-            periodSeconds: 3
+            {{- toYaml .Values.frankenphp.startupProbe | nindent 12 }}
           readinessProbe:
-            httpGet:
-              path: /metrics
-              port: metrics
-            periodSeconds: 3
+            {{- toYaml .Values.frankenphp.readinessProbe | nindent 12 }}
           livenessProbe:
-            httpGet:
-              path: /metrics
-              port: metrics
-            periodSeconds: 3
+            {{- toYaml .Values.frankenphp.livenessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
         {{- if .Values.frankenphp.messenger.enabled }}
