@@ -26,7 +26,7 @@ helm repo add diazoxide https://raw.githubusercontent.com/diazoxide/symfony-helm
 ## Install chart
 Then, install the chart:
 ```shell
-helm upgrade --install symfony diazoxide/symfony-helm --values values.yaml
+helm upgrade --install symfony diazoxide/symfony --values values.yaml
 ```
 
 # Development and contribution
